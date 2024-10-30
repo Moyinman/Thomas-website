@@ -6,7 +6,6 @@
     <title>Login</title>
     <style>
         body {
-            background-color: rgb(124, 156, 145);
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -15,6 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center; /* Center vertically */
+            background-color: #649172;
         }
         .header {
             text-align: center;
@@ -33,9 +33,10 @@
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
             border-radius: 8px;
             border: 2px solid rgba(220, 228, 223, 0.867);
-            background-color: #688b73;
+            background-color: #688b73; /* Match existing color */
             text-align: center;
-            margin-top: 80px;
+            margin-top: 80px; /* Space from header */
+            margin-bottom: 80px; /* Space from footer */
             transition: transform 0.3s; /* Animation for scaling effect */
         }
         .login-container:hover {
@@ -44,6 +45,10 @@
         .login-container h2 {
             color: #033d06;
             margin-bottom: 20px;
+        }
+        .logo {
+            width: 100px; /* Adjust logo size */
+            margin-bottom: 20px; /* Space below logo */
         }
         input[type="text"],
         input[type="password"],
@@ -128,32 +133,37 @@
     <script>
         const form = document.getElementById('loginForm');
         const errorMessageDiv = document.getElementById('error-message');
-    
+        
         form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent form submission
-    
+            e.preventDefault();
+            
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
-    
-            errorMessageDiv.textContent = ''; // Clear previous messages
-    
+            
+            errorMessageDiv.textContent = '';
+            
             if (username === '' || password === '') {
                 errorMessageDiv.textContent = 'Please fill in both username and password.';
                 return;
             }
-    
+            
             // Retrieve saved credentials from local storage
             const savedUsername = localStorage.getItem('username');
             const savedPassword = localStorage.getItem('password');
-    
+            
+            if (!savedUsername || !savedPassword) {
+                errorMessageDiv.textContent = 'No saved credentials found.';
+                return;
+            }
+            
             if (username !== savedUsername || password !== savedPassword) {
                 errorMessageDiv.textContent = 'Invalid username or password.';
                 return;
             }
-    
+            
             // Simulate an API call for login (replace with actual API call)
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
-    
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
             // Redirect to the dashboard page
             window.location.href = 'dashboard.html'; // Change to your new page
         });

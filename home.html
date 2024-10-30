@@ -9,11 +9,11 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            height: 100vh;
+            height: auto; /* Allow height to adjust based on content */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center vertically */
+            justify-content: flex-start; /* Align items at the top */
             background-color: #649172;
         }
         .header {
@@ -30,6 +30,7 @@
             background-color: #688b73;
             border-radius: 8px;
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            margin: 20px; /* Add margin to separate sections */
         }
         .home-container h1 {
             color: #033d06;
@@ -49,6 +50,25 @@
             background-color: #1b5e20;
             transform: scale(1.05); /* Slightly enlarge button on hover */
         }
+        .materials {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping of items */
+            justify-content: center; /* Center items */
+            margin-top: 20px; /* Space above materials section */
+        }
+        .material {
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+            width: 200px; /* Set a fixed width for material cards */
+        }
+        .material img {
+            width: 100%; /* Responsive image */
+            border-radius: 4px; /* Rounded corners */
+        }
     </style>
 </head>
 <body>
@@ -61,6 +81,33 @@
         <a href="login.html">
             <button class="login-button">Go to Login</button>
         </a>
+    </div>
+
+    <div class="home-container">
+        <h2>Building Materials</h2>
+        <div class="materials">
+            <div class="material">
+                <img src="https://th.bing.com/th/id/OIP.TYbgOOotjlKzjbj1QhYQGgHaFi?rs=1&pid=ImgDetMain" alt="Cement">
+                <h3>Cement</h3>
+                <p>High-quality cement for all your construction needs.</p>
+            </div>
+            <div class="material">
+                <img src="https://th.bing.com/th/id/R.5a9b5d289acb6b9824985635155bf6ff?rik=3blx77sEJwInUA&pid=ImgRaw&r=0" alt="Iron Rod">
+                <h3>Iron Rods</h3>
+                <p>Durable iron rods for structural support.</p>
+            </div>
+            <div class="material">
+                <img src="https://th.bing.com/th/id/OIP.rkXkFGm74NUX8umnRUuPTwHaE8?w=800&h=534&rs=1&pid=ImgDetMain" alt="Building Wire">
+                <h3>Building Wire</h3>
+                <p>Reliable building wire for electrical installations.</p>
+            </div>
+            <div class="material">
+                <img src="https://www.say.com.sg/wp-content/uploads/2019/05/NAILS.jpeg" alt="Nails">
+                <h3>Nails</h3>
+                <p>Strong nails for all your fastening needs.</p>
+            </div>
+            <!-- Add more materials as needed -->
+        </div>
     </div>
 </body>
 </html>
