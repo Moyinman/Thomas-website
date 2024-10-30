@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center vertically */
+            background-color: #649172;
+        }
+        .header {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            background-color: #2e7d32;
+            width: 100%;
+            color: white;
+        }
+        .home-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #688b73;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+        .home-container h1 {
+            color: #033d06;
+            margin-bottom: 20px;
+        }
+        .login-button {
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s; /* Transition for button */
+        }
+        .login-button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Thomas Adeoye and Sons Nig. Lit</h1>
+    </div>
+    <div class="home-container">
+        <h1>Home Page</h1>
+        <p>Please click the button below to go to the login page.</p>
+        <a href="login.html">
+            <button class="login-button">Go to Login</button>
+        </a>
+    </div>
+</body>
+</html>

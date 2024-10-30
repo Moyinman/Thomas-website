@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: rgb(124, 156, 145);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center vertically */
+        }
+        .header {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            background-color: #2e7d32;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border: 2px solid rgba(220, 228, 223, 0.867);
+            background-color: #688b73;
+            text-align: center;
+            margin-top: 80px;
+            transition: transform 0.3s; /* Animation for scaling effect */
+        }
+        .login-container:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+        .login-container h2 {
+            color: #033d06;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #b0bec5;
+            box-sizing: border-box;
+        }
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s; /* Transition for button */
+        }
+        .login-button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            background-color: #2e7d32;
+            width: 100%;
+        }
+        .links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red; /* Error message color */
+            margin-top: 10px; /* Space above error message */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>THOMAS ADEOYE AND SONS NIG. LIT</h1>
+    </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit" class="login-button">Login</button>
+            <div class="error-message" id="error-message"></div> <!-- Error message div -->
+        </form>
+        <div class="links">
+            <a href="signup.html">Sign Up</a> | 
+            <a href="forgot-password.html">Forgot Password?</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Designed by Moyin Adelakun</p>
+        <p>Email: <a href="mailto:moyinadelakun@email.com" style="color: #fff; text-decoration: underline;">moyinadelakun@email.com</a></p>
+        <p>Professional Web Designer</p>
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorMessageDiv = document.getElementById('error-message');
+    
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent form submission
+    
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+    
+            errorMessageDiv.textContent = ''; // Clear previous messages
+    
+            if (username === '' || password === '') {
+                errorMessageDiv.textContent = 'Please fill in both username and password.';
+                return;
+            }
+    
+            // Retrieve saved credentials from local storage
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+    
+            if (username !== savedUsername || password !== savedPassword) {
+                errorMessageDiv.textContent = 'Invalid username or password.';
+                return;
+            }
+    
+            // Simulate an API call for login (replace with actual API call)
+            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
+    
+            // Redirect to the dashboard page
+            window.location.href = 'dashboard.html'; // Change to your new page
+        });
+    </script>
+</body>
+</html>
